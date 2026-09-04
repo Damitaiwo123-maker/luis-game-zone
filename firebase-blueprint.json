@@ -1,0 +1,49 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile, game currency, inventory, and stats",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "username": { "type": "string", "maxLength": 64 },
+        "email": { "type": "string", "maxLength": 128 },
+        "avatar": { "type": "string", "maxLength": 32 },
+        "coins": { "type": "number" },
+        "cash": { "type": "number" },
+        "highScore": { "type": "number" },
+        "totalGamesPlayed": { "type": "number" },
+        "totalWins": { "type": "number" },
+        "unlockedWeapons": { "type": "array" },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["uid", "username"]
+    },
+    "LeaderboardEntry": {
+      "title": "LeaderboardEntry",
+      "description": "High scores and game records on global leaderboard",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "username": { "type": "string", "maxLength": 64 },
+        "gameId": { "type": "string", "maxLength": 64 },
+        "score": { "type": "number" },
+        "kills": { "type": "number" },
+        "accuracy": { "type": "number" },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["userId", "username", "gameId", "score"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Private user profiles and game records"
+    },
+    "/leaderboard/{entryId}": {
+      "schema": "LeaderboardEntry",
+      "description": "Global high scores and leaderboard records"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "GameZone",
+  "description": "A modern gaming hub featuring 3D racing, precision aim trainers, FPS arena shooters, space arcade defenders, classic board games, card games, and multiplayer battles.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
